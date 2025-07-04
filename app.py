@@ -4,6 +4,9 @@ from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
 from PIL import Image
 import pytesseract
+import subprocess
+print(">>> Checking if tesseract is in PATH:")
+print(subprocess.run(["which", "tesseract"], capture_output=True, text=True).stdout)
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
