@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>OCR Móc Len - Tính tiền công</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+  <body>
+    <div class="container">
+      <h1>🧶 Tính tiền công thợ móc len từ ảnh</h1>
+
+      <form method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label>Chọn ảnh chart:</label>
+          <input type="file" name="image" required />
+        </div>
+
+        <h2>Giá tiền từng loại mũi (VNĐ/mũi):</h2>
+        <div class="price-inputs">
+          {% for stitch, price in prices.items() %}
+          <label
+            >{{ stitch }}:
+            <input
+              type="number"
+              name="price_{{ stitch }}"
+              value="{{ price }}"
+              min="0"
+            />
+          </label>
+          {% endfor %}
+        </div>
+
+        <button type="submit">Tính toán</button>
+      </form>
+
+      {% if image_url %}
+      <hr />
+      <div class="results">
+        <h2>📷 Ảnh đã tải lên:</h2>
+        <img src="{{ image_url }}" alt="Chart ảnh" width="300" />
+
+        <h2>📋 Văn bản OCR:</h2>
+        <pre>{{ extracted_text }}</pre>
+
+        <h2>🧮 Kết quả đếm từng loại mũi:</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Loại mũi</th>
+              <th>Số lượng</th>
+              <th>Giá/mũi</th>
+              <th>Thành tiền</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for stitch, count in stitch_counts.items() %}
+            <tr>
+              <td>{{ stitch }}</td>
+              <td>{{ count }}</td>
+              <td>{{ prices[stitch] }}</td>
+              <td>{{ count * prices[stitch] }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <h2>
+          💰 Tổng tiền công: <span class="money">{{ total_price }} VNĐ</span>
+        </h2>
+
+        <h2>📖 Chi tiết cách tính:</h2>
+        <pre>
+{% for line in calculation_log %}
+{{ line }}
+{% endfor %}
+        </pre>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

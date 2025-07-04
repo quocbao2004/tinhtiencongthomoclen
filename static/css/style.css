@@ -1,0 +1,96 @@
+/* static/css/style.css */
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2 {
+  color: #333;
+}
+
+form {
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+input[type="file"],
+input[type="number"] {
+  padding: 8px;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.price-inputs label {
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #0a9;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #088;
+}
+
+img {
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background-color: #fefefe;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ccc;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: center;
+}
+
+.money {
+  color: #c0392b;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+pre {
+  background: #f6f6f6;
+  padding: 10px;
+  border-left: 3px solid #999;
+  overflow-x: auto;
+}
