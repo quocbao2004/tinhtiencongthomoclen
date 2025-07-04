@@ -1,12 +1,6 @@
 services:
   - type: web
-    name: moclen-flask
-    env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
-    preDeployCommand: |
-      apt-get update
-      apt-get install -y tesseract-ocr
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.10
+    name: tinhtiencongthomoclen
+    env: docker
+    plan: free
+    autoDeploy: true
