@@ -8,7 +8,6 @@ import pytesseract
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
-# pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 # -------------------------
 # Function: Parse stitches with log (fixed duplication issue)
 # -------------------------
